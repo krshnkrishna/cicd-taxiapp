@@ -129,8 +129,8 @@ resource "aws_iam_instance_profile" "ec2_profile" {
 ########################
 # S3 BUCKET
 ########################
-resource "aws_s3_bucket" "artifact_bucket" {
-  bucket = "my-war-bucket"
+resource "aws_s3_bucket" "artifact_bucket9502" {
+  bucket = "my-war-bucket9502"
 
   tags = {
     Name = "war-artifacts"
@@ -138,7 +138,7 @@ resource "aws_s3_bucket" "artifact_bucket" {
 }
 
 resource "aws_s3_bucket_versioning" "versioning" {
-  bucket = aws_s3_bucket.artifact_bucket.id
+  bucket = aws_s3_bucket.artifact_bucket9502.id
 
   versioning_configuration {
     status = "Enabled"
@@ -209,7 +209,7 @@ resource "aws_instance" "jenkins_slave" {
 # OUTPUTS
 ########################
 output "s3_bucket" {
-  value = aws_s3_bucket.artifact_bucket.bucket
+  value = aws_s3_bucket.artifact_bucket9502.bucket
 }
 
 output "ecr_repo_url" {
